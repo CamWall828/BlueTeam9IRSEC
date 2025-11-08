@@ -9,4 +9,4 @@ do
     passFull="$pass - $i"
     echo $passFull >> .Chungus.txt
     echo "$i:$pass" | sudo chpasswd
-done)
+done
