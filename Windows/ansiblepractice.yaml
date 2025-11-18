@@ -1,0 +1,21 @@
+---
+
+- name: Week 10 RITSEC Practice
+  hosts: localhost
+
+  tasks:
+  - name: Install SysInternals
+    ansible.builtin.get_url:
+      url: "https://download.sysinternals.com/files/SysinternalsSuite.zip"
+      dest: "/c/Program Files" 
+  
+  - name: New SysInternalsFolder
+    ansible.windows.win_file:
+      path: "/c/Program Files/SysInterals"
+      state: directory
+
+  - name: Un-Zip SysInternals
+    ansible.builtin.unarchive:
+      dest: "/c/Program Files/SysInternals"
+      src: "/c/Program Files/SysinternalsSuite.zip"
+      remote_src: yes
